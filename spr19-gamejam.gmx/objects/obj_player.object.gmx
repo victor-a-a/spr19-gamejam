@@ -108,12 +108,13 @@ if not(global.pause) {
             <kind>1</kind>
             <string>/// Color
 
-if (not(global.pause) and keyboard_check_pressed(ord("z"))) {
+if (not(global.pause) and keyboard_check_pressed(ord('Z'))) {
+
     if (color == 'r')
         color = 'g';
-    if (color == 'g')
+    else if (color == 'g')
         color = 'b';
-    if (color == 'b')
+    else if (color == 'b')
         color = 'r';
 }
 </string>
