@@ -14,6 +14,7 @@
       <sprite>sprites\spr_player_b</sprite>
       <sprite>sprites\spr_player_g</sprite>
       <sprite>sprites\spr_player_r</sprite>
+      <sprite>sprites\spr_player_projectilie_1</sprite>
     </sprites>
     <sprites name="square">
       <sprite>sprites\spr_square_enemy_1</sprite>
@@ -27,6 +28,7 @@
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_player</object>
+      <object>objects\obj_player_projectile_1</object>
     </objects>
     <objects name="color_demo">
       <object>objects\obj_r</object>
