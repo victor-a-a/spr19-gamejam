@@ -18,8 +18,14 @@
     <objects name="player">
       <object>objects\obj_player</object>
     </objects>
+    <objects name="color_demo">
+      <object>objects\obj_r</object>
+      <object>objects\obj_g</object>
+      <object>objects\obj_b</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_color_demo</room>
     <room>rooms\rm_test</room>
   </rooms>
   <help>
