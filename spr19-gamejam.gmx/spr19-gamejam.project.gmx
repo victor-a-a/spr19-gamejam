@@ -33,10 +33,14 @@
       <object>objects\obj_g</object>
       <object>objects\obj_b</object>
     </objects>
+    <objects name="circle">
+      <object>objects\obj_circle_enemy_1</object>
+      <object>objects\obj_circle_projectile_1</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_color_demo</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_color_demo</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

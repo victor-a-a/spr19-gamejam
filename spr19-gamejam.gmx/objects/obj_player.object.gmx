@@ -25,6 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Blending Mode
+
+draw_set_blend_mode(bm_add);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Initialize Variables
 
 // Color stuff
@@ -34,7 +57,7 @@ green = 0; // [0, inf)
 blue = 0; // [0, inf)
 
 // scoring
-health = 100; // [0, 100]
+health = 3; // [0, 100]
 score = 0; // [0, inf)
 
 // movement
@@ -70,21 +93,21 @@ global.pause = false;
             <string>/// Movement
 
 if not(global.pause) {
-    // for instantenous switching
-    if (keyboard_check_pressed(vk_up))
-        y_dir = -12;
-    else if (keyboard_check_pressed(vk_down))
-        y_dir = 12;
-    if (keyboard_check_pressed(vk_left))
-        x_dir = -12;
-    else if (keyboard_check_pressed(vk_right))
-        x_dir = 12;
+  // for instantenous switching
+  if (keyboard_check_pressed(vk_up))
+    y_dir = -12;
+  else if (keyboard_check_pressed(vk_down))
+    y_dir = 12;
+  if (keyboard_check_pressed(vk_left))
+    x_dir = -12;
+  else if (keyboard_check_pressed(vk_right))
+    x_dir = 12;
         
-    // actual movement
-    if (keyboard_check(vk_up) or keyboard_check(vk_down))
-        y += (global.scale_factor * y_dir) / (global.frames / 30);
-    if (keyboard_check(vk_right) or keyboard_check(vk_left))
-        x += (global.scale_factor * x_dir) / (global.frames / 30);
+  // actual movement
+  if (keyboard_check(vk_up) or keyboard_check(vk_down))
+    y += (global.scale_factor * y_dir) / (global.frames / 30);
+  if (keyboard_check(vk_right) or keyboard_check(vk_left))
+    x += (global.scale_factor * x_dir) / (global.frames / 30);
 }
 </string>
           </argument>
@@ -109,13 +132,49 @@ if not(global.pause) {
             <string>/// Color
 
 if (not(global.pause) and keyboard_check_pressed(ord('Z'))) {
+  if (color == 'r')
+    color = 'g';
+  else if (color == 'g')
+    color = 'b';
+  else if (color == 'b')
+    color = 'r';
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_circle_projectile_1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision
 
-    if (color == 'r')
-        color = 'g';
-    else if (color == 'g')
-        color = 'b';
-    else if (color == 'b')
-        color = 'r';
+if not(global.pause) {
+  bullet = other;
+  
+  if (bullet.armed) {
+    bullet.armed =  false;
+    if (color == 'r' and red &lt; 256)
+      red++;
+    else {
+      health -= 1;
+      instance_destroy(bullet);
+    }
+  }
 }
 </string>
           </argument>
@@ -141,13 +200,37 @@ if (not(global.pause) and keyboard_check_pressed(ord('Z'))) {
             <kind>1</kind>
             <string>/// Color
 if not(global.pause) {
-    if (color == 'r')
-        sprite_index = spr_player_r;
-    if (color == 'g')
-        sprite_index = spr_player_g;
-    if (color == 'b')
-        sprite_index = spr_player_b;
+  if (color == 'r')
+    sprite_index = spr_player_r;
+  if (color == 'g')
+    sprite_index = spr_player_g;
+  if (color == 'b')
+    sprite_index = spr_player_b;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing 'GUI'
+
+draw_text_colour(32, 32, "Lives: " + string(health) + " | R: " + string(red) + 
+  " | G: " + string(green) + " | B: " + string(blue), c_white, c_white, c_white, c_white, 255);
 </string>
           </argument>
         </arguments>
