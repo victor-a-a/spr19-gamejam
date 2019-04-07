@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_blend_mode(bm_add);
+            <string>/// Blending Mode
+
+draw_set_blend_mode(bm_add);
 </string>
           </argument>
         </arguments>
