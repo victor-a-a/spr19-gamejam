@@ -52,10 +52,10 @@ draw_set_blend_mode(bm_add);
 hp = 100; // [0, 100]
 movement_ai = 0;
 rotate = true;
-rate = 0.5; // how seconds between attacks
+rate = 5; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
-stream = 15; // how many projectiles per attack
-spread = 15; // in degrees
+stream = 360; // how many projectiles per attack
+spread = 1; // in degrees
 frames = -1 * offset; // how many frames since last attack
 </string>
           </argument>
@@ -112,7 +112,7 @@ if not(global.pause) {
 if not(global.pause) {
   frames++;
   if (frames == global.frames * rate) {
-    for (i = 0; i &lt; stream; i++) {
+    for (i = -1 * floor(stream / 2); i &lt; ceil(stream / 2); i++) {
       bullet = instance_create(x, y, obj_circle_projectile_1);
       bullet.direction = image_angle + (spread * i);
       }
