@@ -29,6 +29,82 @@
 hp = 100; // [0, 100]
 movement_ai = 0;
 rotate = true;
+rate = 3; // how seconds between attacks
+offset = 0; // how seconds to offset the attacks
+stream = 1; // how many projectiles per attack
+frames = -1 * offset; // how many frames since last attack
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Movement
+
+if not(global.pause) {
+  switch(movement_ai) {
+    case 0: // do nothing
+      break;
+  }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Attacking
+
+if not(global.pause) {
+  frames++;
+  if (frames == global.frames * rate) {
+    if (rotate) {
+      instance_create(obj_circle_projectile_1, 
+        x + (96 * global.scale_factor * cos(image_angle)),
+        y + (96 * global.scale_factor) - (96 * global.scale_factor * sin(image_angle)));
+      with(other)
+        rotate = false; // might have to revise this
+    }
+    else {
+      instance_create(obj_circle_projectile_1, x, y + (96 * global.scale_factor));
+      with(other) // might have to revise this later
+        rotate = false;
+    }
+    frames = 0;
+  }
+}
+
+
 </string>
           </argument>
         </arguments>

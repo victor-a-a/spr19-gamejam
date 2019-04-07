@@ -35,6 +35,7 @@
     </objects>
     <objects name="circle">
       <object>objects\obj_circle_enemy_1</object>
+      <object>objects\obj_circle_projectile_1</object>
     </objects>
   </objects>
   <rooms name="rooms">

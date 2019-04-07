@@ -70,21 +70,21 @@ global.pause = false;
             <string>/// Movement
 
 if not(global.pause) {
-    // for instantenous switching
-    if (keyboard_check_pressed(vk_up))
-        y_dir = -12;
-    else if (keyboard_check_pressed(vk_down))
-        y_dir = 12;
-    if (keyboard_check_pressed(vk_left))
-        x_dir = -12;
-    else if (keyboard_check_pressed(vk_right))
-        x_dir = 12;
+  // for instantenous switching
+  if (keyboard_check_pressed(vk_up))
+    y_dir = -12;
+  else if (keyboard_check_pressed(vk_down))
+    y_dir = 12;
+  if (keyboard_check_pressed(vk_left))
+    x_dir = -12;
+  else if (keyboard_check_pressed(vk_right))
+    x_dir = 12;
         
-    // actual movement
-    if (keyboard_check(vk_up) or keyboard_check(vk_down))
-        y += (global.scale_factor * y_dir) / (global.frames / 30);
-    if (keyboard_check(vk_right) or keyboard_check(vk_left))
-        x += (global.scale_factor * x_dir) / (global.frames / 30);
+  // actual movement
+  if (keyboard_check(vk_up) or keyboard_check(vk_down))
+    y += (global.scale_factor * y_dir) / (global.frames / 30);
+  if (keyboard_check(vk_right) or keyboard_check(vk_left))
+    x += (global.scale_factor * x_dir) / (global.frames / 30);
 }
 </string>
           </argument>
@@ -109,13 +109,12 @@ if not(global.pause) {
             <string>/// Color
 
 if (not(global.pause) and keyboard_check_pressed(ord('Z'))) {
-
-    if (color == 'r')
-        color = 'g';
-    else if (color == 'g')
-        color = 'b';
-    else if (color == 'b')
-        color = 'r';
+  if (color == 'r')
+    color = 'g';
+  else if (color == 'g')
+    color = 'b';
+  else if (color == 'b')
+    color = 'r';
 }
 </string>
           </argument>
@@ -141,12 +140,12 @@ if (not(global.pause) and keyboard_check_pressed(ord('Z'))) {
             <kind>1</kind>
             <string>/// Color
 if not(global.pause) {
-    if (color == 'r')
-        sprite_index = spr_player_r;
-    if (color == 'g')
-        sprite_index = spr_player_g;
-    if (color == 'b')
-        sprite_index = spr_player_b;
+  if (color == 'r')
+    sprite_index = spr_player_r;
+  if (color == 'g')
+    sprite_index = spr_player_g;
+  if (color == 'b')
+    sprite_index = spr_player_b;
 }
 </string>
           </argument>
