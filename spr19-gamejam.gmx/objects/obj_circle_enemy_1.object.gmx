@@ -31,7 +31,7 @@ movement_ai = 0;
 rotate = true;
 rate = 3; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
-stream = 1; // how many projectiles per attack
+stream = 5; // how many projectiles per attack
 frames = -1 * offset; // how many frames since last attack
 </string>
           </argument>
@@ -88,14 +88,10 @@ if not(global.pause) {
 if not(global.pause) {
   frames++;
   if (frames == global.frames * rate) {
-    if (rotate) {
-      instance_create(x + (32 * global.scale_factor * cos(image_angle)),
-        y - (32 * global.scale_factor * sin(image_angle)),
-        obj_circle_projectile_1);
-    }
-    else {
-      instance_create(x, y + (32 * global.scale_factor), obj_circle_projectile_1);
-    }
+    for (i = 0; i &lt; stream; i++) {
+      bullet = instance_create(x, y, obj_circle_projectile_1);
+      bullet.direction = image_angle;
+      }
     frames = 0;
   }
 }
