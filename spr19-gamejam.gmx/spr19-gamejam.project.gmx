@@ -39,8 +39,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_color_demo</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_color_demo</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

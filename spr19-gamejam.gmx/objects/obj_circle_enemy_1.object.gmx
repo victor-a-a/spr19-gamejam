@@ -89,22 +89,42 @@ if not(global.pause) {
   frames++;
   if (frames == global.frames * rate) {
     if (rotate) {
-      instance_create(obj_circle_projectile_1, 
-        x + (96 * global.scale_factor * cos(image_angle)),
-        y + (96 * global.scale_factor) - (96 * global.scale_factor * sin(image_angle)));
-      with(other)
-        rotate = false; // might have to revise this
+      instance_create(x + (32 * global.scale_factor * cos(image_angle)),
+        y - (32 * global.scale_factor * sin(image_angle)),
+        obj_circle_projectile_1);
     }
     else {
-      instance_create(obj_circle_projectile_1, x, y + (96 * global.scale_factor));
-      with(other) // might have to revise this later
-        rotate = false;
+      instance_create(x, y + (32 * global.scale_factor), obj_circle_projectile_1);
     }
     frames = 0;
   }
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Sprite Control
+
+if (rotate)
+  image_angle = point_direction(x, y, obj_player.x, obj_player.y);
 </string>
           </argument>
         </arguments>
