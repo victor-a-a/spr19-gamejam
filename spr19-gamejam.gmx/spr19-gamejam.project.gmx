@@ -5,9 +5,39 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprites name="circle">
+      <sprite>sprites\spr_circle_projectile_1</sprite>
+      <sprite>sprites\spr_circle_enemy_1</sprite>
+    </sprites>
+    <sprites name="player">
+      <sprite>sprites\spr_player_b</sprite>
+      <sprite>sprites\spr_player_g</sprite>
+      <sprite>sprites\spr_player_r</sprite>
+    </sprites>
+    <sprites name="square">
+      <sprite>sprites\spr_square_enemy_1</sprite>
+    </sprites>
+    <sprites name="triangle">
+      <sprite>sprites\spr_triangle_enemy_1</sprite>
+    </sprites>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <objects name="player">
+      <object>objects\obj_player</object>
+    </objects>
+    <objects name="color_demo">
+      <object>objects\obj_r</object>
+      <object>objects\obj_g</object>
+      <object>objects\obj_b</object>
+    </objects>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_color_demo</room>
+    <room>rooms\rm_test</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
