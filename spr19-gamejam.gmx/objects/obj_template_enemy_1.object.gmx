@@ -74,6 +74,7 @@ spread = 3; // in degrees
 frames = -1 * offset * global.frames; // how many frames since last attack, move this after create
 
 // Movement
+rot_rate = 0; // for arbitrary rotation attack; in degrees per frame
 sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
 speed = 12; // used for rotation based movement
 direction = 0; // in case the enemy should have a fixed angle
@@ -187,8 +188,11 @@ if not(global.pause) {
     case 2: // up, down, left, and right attack
       break;
       
-    case 3: // rotating attack
+    case 3: // rotate toward the player
       break;
+      
+    case 4:
+      break; // rotate arbitrarily
   }
   
   // creates projectile objects
