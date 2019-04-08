@@ -134,13 +134,40 @@ if not(global.pause) {
     case 0: // static
       break;
       
-    case 1: // moves from left to right
+    case 1: // moves from left to right following player
       if (obj_player.x - x &gt; sp - 1) and 
         not(collision_line(x, y, x + x_dist, y, obj_template_enemy_1, true, true))
-        x += sp * global.scale_factor;
+        x += sp * (30 / global.frames);
       else if (x - obj_player.x &gt; sp - 1) and
         not(collision_line(x, y, x - x_dist, y, obj_template_enemy_1, true, true))
-        x -= sp * global.scale_factor;
+        x -= sp * (30 / global.frames);
+      break;
+      
+    case 2: // moves from left to right until it hits edges or other object
+      if (x &gt; room_width - 64) and 
+        not(collision_line(x, y, x + x_dist, y, obj_template_enemy_1, true, true))
+        move_towards_point(0, y, speed);
+      else if (x &lt; 64) and
+        not(collision_line(x, y, x - x_dist, y, obj_template_enemy_1, true, true))
+        move_towards_point(room_width, y, speed);
+      break;
+      
+    case 3: // moves up and down following the player
+      if (obj_player.y - y &gt; sp - 1) and 
+        not(collision_line(x, y, x, y + y_dist, obj_template_enemy_1, true, true))
+        y += sp * (30 / global.frames);
+      else if (y - obj_player.y &gt; sp - 1) and
+        not(collision_line(x, y, x, y - y_dist, obj_template_enemy_1, true, true))
+        y -= sp * (30 / global.frames);
+      break;
+      
+    case 4: // moves up and down until it hits edges or other object
+      if (y &gt; room_height - 64) and 
+        not(collision_line(x, y, x, y + y_dist, obj_template_enemy_1, true, true))
+        move_towards_point(x, 0, speed);
+      else if (y &lt; 64) and
+        not(collision_line(x, y, x, y - y_dist, obj_template_enemy_1, true, true))
+        move_towards_point(x, room_height, speed);
       break;
   }
 }

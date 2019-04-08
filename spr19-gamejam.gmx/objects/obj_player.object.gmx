@@ -25,29 +25,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Blending Mode
-
-draw_set_blend_mode(bm_add);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// Initialize Variables
 
 // Color stuff
@@ -69,9 +46,32 @@ cooldown = 6; // at 30 fps
 frames = 0;
 
 // global vars, move somewhere else later
-global.scale_factor = 1; // this is in case we need to change size of sprites
+global.scale_factor = 1; // **THIS IS NOW DEFUNCT; DO NOT DELETE YET; MUST REMOVE ALL REFERENCES TO IT**
 global.frames = 30; // in case we change frame rate later; game was designed at 30 fps
 global.pause = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Blending Mode
+
+draw_set_blend_mode(bm_add);
 </string>
           </argument>
         </arguments>
@@ -211,6 +211,36 @@ if not(global.pause) {
     frames = 0;
   }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Map Bounding
+
+if (x &lt; 0)
+  x = 0;
+else if (x &gt; room_width)
+  x = room_width;
+if (y &lt; 0)
+  y = 0;
+else if (y &gt; room_height)
+  y = room_height;
 </string>
           </argument>
         </arguments>
