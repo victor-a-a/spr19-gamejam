@@ -89,9 +89,11 @@ frames = -1 * offset; // how many frames since last attack
 //  }
 //}
 
-if obj_player.x &gt; x
+//if (obj_player.x - x &lt; 8) or (x - obj_player.x &lt; 8)
+//  x += 0;
+if obj_player.x - x &gt; 7
   x += 8 * global.scale_factor;
-else if obj_player.x &lt; x
+else if x - obj_player.x &gt; 7
   x -= 8 * global.scale_factor;
 </string>
           </argument>
