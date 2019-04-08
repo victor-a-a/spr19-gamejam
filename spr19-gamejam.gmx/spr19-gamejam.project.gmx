@@ -46,6 +46,10 @@
       <object>objects\obj_circle_enemy_1</object>
       <object>objects\obj_circle_projectile_1</object>
     </objects>
+    <objects name="template">
+      <object>objects\obj_template_enemy_1</object>
+      <object>objects\obj_template_projectile_1</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

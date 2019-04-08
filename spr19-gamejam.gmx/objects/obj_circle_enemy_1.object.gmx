@@ -56,7 +56,7 @@ rate = 5; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
 stream = 120; // how many projectiles per attack
 spread = 3; // in degrees
-frames = -1 * offset; // how many frames since last attack
+frames = -1 * offset * global.frames; // how many frames since last attack
 </string>
           </argument>
         </arguments>
