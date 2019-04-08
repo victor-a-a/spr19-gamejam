@@ -183,15 +183,34 @@ if not(global.pause) {
       break;
       
     case 1: // left and right attack
+      if obj_player.x &lt; x {
+        image_angle = 180;
+        direction = 180;
+      }
+      else if obj_player.x &gt; x {
+        image_angle = 0;
+        direction = 0;
+      }
       break;
       
     case 2: // up, down, left, and right attack
+      direction = point_direction(x, y, obj_player.x, obj_player.y);
+      if (direction &lt; 45 and direction &gt;= 315)
+        direction = 0;
+      else if (direction &lt; 135 and direction &gt;= 45)
+        direction = 90;
+      else if (direction &lt; 225 and direction &gt;= 135)
+        direction = 180;
+      else
+        direction = 270;
       break;
       
     case 3: // rotate toward the player
+      direction = point_direction(x, y, obj_player.x, obj_player.y);
       break;
       
     case 4:
+      direction += (30 / global.frames) * rot_rate;
       break; // rotate arbitrarily
   }
   

@@ -70,7 +70,7 @@ frames = 0;
 
 // global vars, move somewhere else later
 global.scale_factor = 1; // this is in case we need to change size of sprites
-global.frames = 30; // in case we change frame rate later
+global.frames = 30; // in case we change frame rate later; game was designed at 30 fps
 global.pause = false;
 </string>
           </argument>
