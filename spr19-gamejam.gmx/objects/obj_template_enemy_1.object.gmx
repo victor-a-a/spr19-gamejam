@@ -61,7 +61,24 @@
             <kind>1</kind>
             <string>/// Initialize Variables
 
-// Largely the same variables, with additional variables to control color, speed, etc
+// General
+hp = 100;
+movement_ai = 0;
+attack_ai = 0;
+
+// Attack
+rate = 5; // how seconds between attacks
+offset = 0; // how seconds to offset the attacks
+stream = 120; // how many projectiles per attack
+spread = 3; // in degrees
+frames = -1 * offset * global.frames; // how many frames since last attack, move this after create
+
+// Movement
+rotate = true;
+sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
+speed = 12; // used for rotation based movement
+direction = 0; // in case the enemy should have a fixed angle
+image_angle = 0; // in case the enemy should have a fixed angle
 </string>
           </argument>
         </arguments>
