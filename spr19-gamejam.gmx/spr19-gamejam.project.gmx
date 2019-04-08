@@ -29,26 +29,28 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <objects name="triangle">
-      <object>objects\obj_triangle_projectile_1</object>
-      <object>objects\obj_triangle_enemy_1</object>
+    <objects name="color_demo">
+      <object>objects\obj_b</object>
+      <object>objects\obj_g</object>
+      <object>objects\obj_r</object>
+    </objects>
+    <objects name="enemies">
+      <objects name="circle">
+        <object>objects\obj_circle_enemy_1</object>
+        <object>objects\obj_circle_projectile_1</object>
+      </objects>
+      <objects name="template">
+        <object>objects\obj_template_enemy_1</object>
+        <object>objects\obj_template_projectile_1</object>
+      </objects>
+      <objects name="triangle">
+        <object>objects\obj_triangle_enemy_1</object>
+        <object>objects\obj_triangle_projectile_1</object>
+      </objects>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
       <object>objects\obj_player_projectile_1</object>
-    </objects>
-    <objects name="color_demo">
-      <object>objects\obj_r</object>
-      <object>objects\obj_g</object>
-      <object>objects\obj_b</object>
-    </objects>
-    <objects name="circle">
-      <object>objects\obj_circle_enemy_1</object>
-      <object>objects\obj_circle_projectile_1</object>
-    </objects>
-    <objects name="template">
-      <object>objects\obj_template_enemy_1</object>
-      <object>objects\obj_template_projectile_1</object>
     </objects>
   </objects>
   <rooms name="rooms">

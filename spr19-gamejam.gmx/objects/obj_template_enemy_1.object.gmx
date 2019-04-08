@@ -79,6 +79,9 @@ sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
 speed = 12; // used for rotation based movement
 direction = 0; // in case the enemy should have a fixed angle
 image_angle = 0; // in case the enemy should have a fixed angle
+// experimantal, consider adding a variable to specify instance
+x_dist = 64; // minimum distance to keep from nearest entity of the same type
+y_dist = 64; // same, but for the y axis
 </string>
           </argument>
         </arguments>
@@ -129,6 +132,15 @@ draw_set_blend_mode(bm_add);
 if not(global.pause) {
   switch(movement_ai) {
     case 0: // static
+      break;
+      
+    case 1: // moves from left to right
+      if (obj_player.x - x &gt; sp - 1) and 
+        not(collision_line(x, y, x + x_dist, y, obj_template_enemy_1, true, true))
+        x += sp * global.scale_factor;
+      else if (x - obj_player.x &gt; sp - 1) and
+        not(collision_line(x, y, x - x_dist, y, obj_template_enemy_1, true, true))
+        x -= sp * global.scale_factor;
       break;
   }
 }
