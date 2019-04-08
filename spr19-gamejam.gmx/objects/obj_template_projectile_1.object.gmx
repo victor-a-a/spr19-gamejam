@@ -31,7 +31,7 @@
   This is a template for generic projectiles.  Specific details of object behavior are 
   determined by creation variables.  This template includes multiple options for movement 
   patterns and other properties.  New enemy variants can be made by mixing creation 
-  variables and movement patterns.
+  variables and movement patterns.  This will work more as a parent object.
 
 * ATTACK:
 
