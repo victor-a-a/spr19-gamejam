@@ -126,7 +126,12 @@ draw_set_blend_mode(bm_add);
             <kind>1</kind>
             <string>/// Movement
 
-// here we will have a switch to determine movement options
+if not(global.pause) {
+  switch(movement_ai) {
+    case 0: // static
+      break;
+  }
+}
 </string>
           </argument>
         </arguments>
