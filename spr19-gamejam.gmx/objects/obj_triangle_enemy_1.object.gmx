@@ -51,7 +51,8 @@ draw_set_blend_mode(bm_add);
             <string>/// Initialize Variables
 hp = 3; // [0, 100]
 movement_ai = 0;
-rotate = true;
+rotate = false;
+image_angle = 270;
 rate = 1; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
 stream = 1; // how many projectiles per attack
@@ -81,12 +82,17 @@ frames = -1 * offset; // how many frames since last attack
             <kind>1</kind>
             <string>/// Movement
 
-if not(global.pause) {
-  switch(movement_ai) {
-    case 0: // do nothing
-      break;
-  }
-}
+//if not(global.pause) {
+//  switch(movement_ai) {
+//    case 0: // do nothing
+//      break;
+//  }
+//}
+
+if obj_player.x &gt; x
+  x += 8 * global.scale_factor;
+else if obj_player.x &lt; x
+  x -= 8 * global.scale_factor;
 </string>
           </argument>
         </arguments>
@@ -118,6 +124,17 @@ if not(global.pause) {
       bullet.image_angle = image_angle + (spread * i) + 90;
       }
     frames = 0;
+  }
+  // for static direction
+  if not(rotate) {
+    if obj_player.y &lt; y {
+      image_angle = 90;
+      direction = 90;
+    }
+    else if obj_player.y &gt; y {
+      image_angle = 270;
+      direction = 270;
+    }
   }
 }
 
