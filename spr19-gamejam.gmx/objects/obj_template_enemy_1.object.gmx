@@ -74,7 +74,6 @@ spread = 3; // in degrees
 frames = -1 * offset * global.frames; // how many frames since last attack, move this after create
 
 // Movement
-rotate = true;
 sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
 speed = 12; // used for rotation based movement
 direction = 0; // in case the enemy should have a fixed angle
@@ -166,7 +165,42 @@ if not(global.pause) {
             <kind>1</kind>
             <string>/// Attack
 
-// here we will have a switch to dertermine movement
+if not(global.pause) {
+  frames++;
+  
+  // switch determines direction of attack
+  switch(attack_ai) {
+    case 0: // up and down attack
+      if obj_player.y &lt; y {
+        image_angle = 90;
+        direction = 90;
+      }
+      else if obj_player.y &gt; y {
+        image_angle = 270;
+        direction = 270;
+      }
+      break;
+      
+    case 1: // left and right attack
+      break;
+      
+    case 2: // up, down, left, and right attack
+      break;
+      
+    case 3: // rotating attack
+      break;
+  }
+  
+  // creates projectile objects
+  if (frames == global.frames * rate) {
+    for (i = -1 * floor(stream / 2); i &lt; ceil(stream / 2); i++) {
+      bullet = instance_create(x, y, obj_triangle_projectile_1);
+      bullet.direction = image_angle + (spread * i);
+      bullet.image_angle = image_angle + (spread * i) + 90;
+      }
+    frames = 0;
+  }
+}
 </string>
           </argument>
         </arguments>
@@ -189,7 +223,7 @@ if not(global.pause) {
             <kind>1</kind>
             <string>/// Sprite Control
 
-// this will be largely the same as in the other two current objects
+image_angle = direction;
 </string>
           </argument>
         </arguments>
