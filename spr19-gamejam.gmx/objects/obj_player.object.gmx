@@ -61,8 +61,8 @@ health = 3; // [0, 100]
 score = 0; // [0, inf)
 
 // movement
-y_dir = 12;
-x_dir = 12;
+y_dir = 16;
+x_dir = 16;
 
 // attack
 cooldown = 6; // at 30 fps
