@@ -54,8 +54,8 @@ movement_ai = 0;
 rotate = true;
 rate = 5; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
-stream = 360; // how many projectiles per attack
-spread = 1; // in degrees
+stream = 120; // how many projectiles per attack
+spread = 3; // in degrees
 frames = -1 * offset; // how many frames since last attack
 </string>
           </argument>
