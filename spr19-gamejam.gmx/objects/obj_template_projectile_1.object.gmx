@@ -131,6 +131,10 @@ if not(global.pause) {
   switch(damage_ai) {
     case 0: // do nothing
       break;
+      
+    case 1: // expand horizontally
+      image_xscale *= 1.1;
+      break;
   }
 }
 </string>

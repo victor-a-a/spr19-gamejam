@@ -18,6 +18,7 @@
     </sprites>
     <sprites name="square">
       <sprite>sprites\spr_square_enemy_1</sprite>
+      <sprite>sprites\spr_square_projectile_1</sprite>
     </sprites>
     <sprites name="triangle">
       <sprite>sprites\spr_triangle_projectile_1</sprite>
@@ -40,6 +41,7 @@
         <object>objects\obj_template_projectile_1</object>
       </objects>
       <object>objects\obj_circle_enemy_1</object>
+      <object>objects\obj_square_enemy_1</object>
       <object>objects\obj_triangle_enemy_1</object>
     </objects>
     <objects name="player">
