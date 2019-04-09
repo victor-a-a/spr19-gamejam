@@ -35,18 +35,12 @@
       <object>objects\obj_r</object>
     </objects>
     <objects name="enemies">
-      <objects name="circle">
-        <object>objects\obj_circle_enemy_1</object>
-        <object>objects\obj_circle_projectile_1</object>
-      </objects>
       <objects name="template">
         <object>objects\obj_template_enemy_1</object>
         <object>objects\obj_template_projectile_1</object>
       </objects>
-      <objects name="triangle">
-        <object>objects\obj_triangle_enemy_1</object>
-        <object>objects\obj_triangle_projectile_1</object>
-      </objects>
+      <object>objects\obj_circle_enemy_1</object>
+      <object>objects\obj_triangle_enemy_1</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>

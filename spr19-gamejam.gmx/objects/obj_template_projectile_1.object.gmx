@@ -33,7 +33,9 @@ sp = 12
 speed = 12; // speed in pixels per second
 dummy_speed = speed; //this is just in case of pausing to save speed var
 movement_ai = 0;
-frames = 0; // for cooldown period or other functions
+damage_ai = 0;
+m_frames = 0; // for movement related stuff
+d_frames = 0; // for damage related stuff
 </string>
           </argument>
         </arguments>
@@ -91,11 +93,45 @@ frames = 0; // for cooldown period or other functions
             <kind>1</kind>
             <string>/// Movement
 
+// use switch here
 if not(global.pause) {
-  speed = 24;
+  switch(movement_ai) {
+    case 0: // move towards where the player was when the object was created
+    speed = 24;
+    break;
+  }
 }
-else {
+
+else { // when the game is paused
   speed = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Damage
+
+if not(global.pause) {
+  switch(damage_ai) {
+    case 0: // do nothing
+      break;
+  }
 }
 </string>
           </argument>

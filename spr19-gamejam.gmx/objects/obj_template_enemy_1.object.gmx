@@ -78,6 +78,7 @@ frames = -1 * offset * global.frames; // how many frames since last attack, move
 rot_rate = 0; // for arbitrary rotation attack; in degrees per frame
 sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
 speed = 12; // used for rotation based movement
+dummy_speed = speed;
 direction = 0; // in case the enemy should have a fixed angle
 image_angle = 0; // in case the enemy should have a fixed angle
 // experimantal, consider adding a variable to specify instance
@@ -88,6 +89,8 @@ y_dist = 64; // same, but for the y axis
 p_sp = 12;
 p_speed = 12;
 p_movement_ai = 0;
+p_damage_ai = 0;
+p_sprite = spr_circle_projectile_1;
 </string>
           </argument>
         </arguments>
@@ -141,6 +144,7 @@ if not(global.pause) {
       break;
       
     case 1: // moves from left to right following player
+      speed = 0;
       if (obj_player.x - x &gt; sp - 1) and 
         not(collision_line(x, y, x + x_dist, y, obj_template_enemy_1, true, true))
         x += sp * (30 / global.frames);
@@ -239,6 +243,7 @@ if not(global.pause) {
       break;
       
     case 3: // rotate toward the player
+      speed = 0;
       direction = point_direction(x, y, obj_player.x, obj_player.y);
       break;
       
@@ -255,6 +260,8 @@ if not(global.pause) {
       bullet.sp = p_sp;
       bullet.speed = p_speed;
       bullet.movement_ai = p_movement_ai;
+      bullet.damage_ai =  p_damage_ai;
+      bullet.sprite_index = p_sprite;
       bullet.direction = image_angle + (spread * i);
       bullet.image_angle = image_angle + (spread * i) + 90;
       }

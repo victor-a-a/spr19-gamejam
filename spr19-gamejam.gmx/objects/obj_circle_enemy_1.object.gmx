@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_template_enemy_1</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,126 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Blending Mode
-
-draw_set_blend_mode(bm_add);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// Initialize Variables
-hp = 100; // [0, 100]
+
+// General
+color = 'r';
+hp = 10;
 movement_ai = 0;
-rotate = true;
+attack_ai = 3;
+
+// Attack
 rate = 5; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
 stream = 120; // how many projectiles per attack
 spread = 3; // in degrees
-frames = -1 * offset * global.frames; // how many frames since last attack
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Movement
+frames = -1 * offset * global.frames; // how many frames since last attack, move this after create
 
-if not(global.pause) {
-  switch(movement_ai) {
-    case 0: // do nothing
-      break;
-  }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Attacking
+// Movement
+rot_rate = 0; // for arbitrary rotation attack; in degrees per frame
+sp = 12; // speed in pixels per frame, used for vertical and horizontal movement
+speed = 12; // used for rotation based movement
+dummy_speed = speed;
+direction = 0; // in case the enemy should have a fixed angle
+image_angle = 0; // in case the enemy should have a fixed angle
+// experimantal, consider adding a variable to specify instance
+x_dist = 64; // minimum distance to keep from nearest entity of the same type
+y_dist = 64; // same, but for the y axis
 
-if not(global.pause) {
-  frames++;
-  if (frames == global.frames * rate) {
-    for (i = -1 * floor(stream / 2); i &lt; ceil(stream / 2); i++) {
-      bullet = instance_create(x, y, obj_circle_projectile_1);
-      bullet.direction = image_angle + (spread * i);
-      }
-    frames = 0;
-  }
-}
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Sprite Control
-
-if (rotate)
-  image_angle = point_direction(x, y, obj_player.x, obj_player.y);
+// Projectile Properties
+p_sp = 12;
+p_speed = 12;
+p_movement_ai = 0;
+p_damage_ai = 0;
+p_sprite = spr_circle_projectile_1;
 </string>
           </argument>
         </arguments>
