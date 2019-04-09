@@ -91,6 +91,8 @@ p_speed = 12;
 p_movement_ai = 0;
 p_damage_ai = 0;
 p_sprite = spr_circle_projectile_1;
+p_xscale_rate = 0; // the rate at which the projectile expands horizontally, per second
+p_yscale_rate = 0; // the rate at which the projectile expands vertically, per second
 </string>
           </argument>
         </arguments>
@@ -264,6 +266,8 @@ if not(global.pause) {
       bullet.sprite_index = p_sprite;
       bullet.direction = image_angle + (spread * i);
       bullet.image_angle = image_angle + (spread * i) + 90;
+      bullet.xscale = p_xscale_rate;
+      bullet.yscale = p_yscale_rate;
       }
     frames = 0;
   }

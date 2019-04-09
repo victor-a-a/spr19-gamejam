@@ -36,6 +36,8 @@ movement_ai = 0;
 damage_ai = 0;
 m_frames = 0; // for movement related stuff
 d_frames = 0; // for damage related stuff
+xscale = 0; // the rate at which the projectile expands horizontally, per second
+yscale = 0; // the rate at which the projectile expands vertically, per second
 </string>
           </argument>
         </arguments>
@@ -133,8 +135,11 @@ if not(global.pause) {
       break;
       
     case 1: // expand horizontally
-      image_xscale *= 1.1;
+      image_xscale += (xscale / global.frames);
       break;
+    
+    case 2: // expand vertically
+      image_yscale += (yscale / global.frames);
   }
 }
 </string>

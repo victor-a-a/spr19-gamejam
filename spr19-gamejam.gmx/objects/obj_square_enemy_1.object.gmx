@@ -57,6 +57,8 @@ p_speed = 12;
 p_movement_ai = 0;
 p_damage_ai = 1;
 p_sprite = spr_square_projectile_1;
+p_xscale_rate = 3; // the rate at which the projectile expands horizontally
+p_yscale_rate = 0; // the rate at which the projectile expands vertically
 </string>
           </argument>
         </arguments>
