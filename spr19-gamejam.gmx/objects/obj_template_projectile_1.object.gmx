@@ -29,8 +29,8 @@
 
 color = 'r';
 armed = true; // add a timer to re-arm projectile
-sp = 12
-speed = 12; // speed in pixels per second
+sp = 0
+speed = 0; // speed in pixels per second
 dummy_speed = speed; //this is just in case of pausing to save speed var
 movement_ai = 0;
 damage_ai = 0;
@@ -100,7 +100,7 @@ yscale = 0; // the rate at which the projectile expands vertically, per second
 if not(global.pause) {
   switch(movement_ai) {
     case 0: // move towards where the player was when the object was created
-    speed = 24;
+    speed = dummy_speed;
     break;
   }
 }

@@ -261,6 +261,7 @@ if not(global.pause) {
       bullet.color = color;
       bullet.sp = p_sp;
       bullet.speed = p_speed;
+      bullet.dummy_speed = p_speed;
       bullet.movement_ai = p_movement_ai;
       bullet.damage_ai =  p_damage_ai;
       bullet.sprite_index = p_sprite;
