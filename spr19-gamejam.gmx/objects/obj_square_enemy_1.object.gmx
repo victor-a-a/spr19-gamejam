@@ -52,8 +52,8 @@ x_dist = 64; // minimum distance to keep from nearest entity of the same type
 y_dist = 64; // same, but for the y axis
 
 // Projectile Properties
-p_sp = 12;
-p_speed = 12;
+p_sp = 6;
+p_speed = 6;
 p_movement_ai = 0;
 p_damage_ai = 1;
 p_sprite = spr_square_projectile_1;

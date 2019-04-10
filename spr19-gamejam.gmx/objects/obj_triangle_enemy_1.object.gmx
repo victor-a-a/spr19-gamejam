@@ -34,7 +34,7 @@ movement_ai = 1;
 attack_ai = 0;
 
 // Attack
-rate = 1; // how seconds between attacks
+rate = 5; // how seconds between attacks
 offset = 0; // how seconds to offset the attacks
 stream = 1; // how many projectiles per attack
 spread = 0; // in degrees
@@ -48,12 +48,12 @@ dummy_speed = speed;
 direction = 0; // in case the enemy should have a fixed angle
 image_angle = 0; // in case the enemy should have a fixed angle
 // experimantal, consider adding a variable to specify instance
-x_dist = 128; // minimum distance to keep from nearest entity of the same type
+x_dist = 256; // minimum distance to keep from nearest entity of the same type
 y_dist = 128; // same, but for the y axis
 
 // Projectile Properties
-p_sp = 12;
-p_speed = 12;
+p_sp = 32;
+p_speed = 32;
 p_movement_ai = 0;
 p_damage_ai = 0;
 p_sprite = spr_triangle_projectile_1;

@@ -276,8 +276,8 @@ if not(global.pause) {
       green++;
     else if (bullet.color == color) and (color == 'b')
       blue++;
-    //else
-    //  health--;
+    else
+      health--;
     bullet.armed = false;
   }
 }
