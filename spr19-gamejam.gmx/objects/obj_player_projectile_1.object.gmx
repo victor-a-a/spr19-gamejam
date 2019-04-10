@@ -25,10 +25,45 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Vars and shit
+            <string>/// Vars
 
+armed = true; // add a timer to re-arm projectile
+sp = 0
+speed = 32; // speed in pixels per second
 direction = 90;
-speed = 24;
+dummy_speed = speed; //this is just in case of pausing to save speed var
+movement_ai = 0;
+damage_ai = 0;
+m_frames = 0; // for movement related stuff
+d_frames = 0; // for damage related stuff
+a_frames = 0; // for rearming projectile
+xscale = 0; // the rate at which the projectile expands horizontally, per second
+yscale = 0; // the rate at which the projectile expands vertically, per second
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Movement
+
+if not(global.pause)
 </string>
           </argument>
         </arguments>
@@ -49,10 +84,53 @@ speed = 24;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// README
-/*  WILL HAVE TO CREATE A TEMPLATE PLAYER PROJECTILE,
-    IN CASE WE DECIDE TO MAKE DIFFERENT WEAPON TYPES
-*/
+            <string>/// Damage
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Rearming
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Out of bounds
+with(self)
+  instance_destroy();
 </string>
           </argument>
         </arguments>
