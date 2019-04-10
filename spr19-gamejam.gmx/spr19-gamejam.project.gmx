@@ -29,12 +29,10 @@
     <background>background\bg_logo</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\ft_temp</font>
+  </fonts>
   <objects name="objects">
-    <objects name="color_demo">
-      <object>objects\obj_b</object>
-      <object>objects\obj_g</object>
-      <object>objects\obj_r</object>
-    </objects>
     <objects name="enemies">
       <objects name="template">
         <object>objects\obj_template_enemy_1</object>
@@ -51,7 +49,6 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
-    <room>rooms\rm_color_demo</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
