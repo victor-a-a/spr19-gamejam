@@ -29,6 +29,9 @@
     <background>background\bg_logo</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_player_attack.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\ft_temp</font>
   </fonts>

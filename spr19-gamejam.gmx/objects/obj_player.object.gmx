@@ -44,8 +44,6 @@ x_dir = sp;
 
 // attack
 attack_type = 0;
-stream = 1; // projectiles per attack
-spread = 0;
 cooldown = 6; // at 30 fps
 frames = 0;
 
