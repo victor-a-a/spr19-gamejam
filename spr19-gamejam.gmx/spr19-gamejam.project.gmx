@@ -30,7 +30,14 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_player_attack.gml</script>
+    <scripts name="behavior">
+      <scripts name="player">
+        <script>scripts\scr_player_attack.gml</script>
+      </scripts>
+      <scripts name="enemies">
+        <script>scripts\script1.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\ft_temp</font>
