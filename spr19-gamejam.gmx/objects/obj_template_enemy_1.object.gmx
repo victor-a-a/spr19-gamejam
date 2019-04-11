@@ -265,8 +265,8 @@ if not(global.pause) {
       bullet.movement_ai = p_movement_ai;
       bullet.damage_ai =  p_damage_ai;
       bullet.sprite_index = p_sprite;
-      bullet.direction = image_angle + (spread * i);
-      bullet.image_angle = image_angle + (spread * i) + 90;
+      bullet.direction = direction + (spread * i);
+      bullet.image_angle = direction + (spread * i) + 90;
       bullet.xscale = p_xscale_rate;
       bullet.yscale = p_yscale_rate;
       }
@@ -301,7 +301,7 @@ image_angle = direction;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_player_projectile_1">
+    <event eventtype="4" ename="obj_template_projectile_1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -318,13 +318,17 @@ image_angle = direction;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// HP
+            <string>/// Collision Logic
 
-hp--;
-with(other)
-  instance_destroy();
-if (hp == 0)
-  instance_destroy();
+if not(global.pause) {
+  var bullet = other;
+  if (bullet.armed) and (bullet.color = 'w') {
+    hp--;
+    if (hp &lt; 1)
+      instance_destroy();
+    bullet.armed = false;
+  }
+}
 </string>
           </argument>
         </arguments>

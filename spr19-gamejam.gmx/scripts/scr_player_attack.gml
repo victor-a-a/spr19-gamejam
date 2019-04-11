@@ -17,12 +17,12 @@ for (i = -1 * floor(stream / 2); i < ceil(stream / 2); i++) {
   bullet.color = 'w';
   bullet.sp = sp;
   bullet.speed = speed_;
-  bullet.dummy_speed = speed;
+  bullet.dummy_speed = speed_;
   bullet.movement_ai = movement_ai
   bullet.damage_ai =  damage_ai;
-  bullet.sprite_index_ = sprite_index;
-  bullet.direction = image_angle + (spread * i);
-  bullet.image_angle = image_angle + (spread * i) + 90;
+  bullet.sprite_index = sprite_index_;
+  bullet.direction = direction + (spread * i);
+  bullet.image_angle = direction + (spread * i) + 90;
   bullet.xscale = xscale;
   bullet.yscale = yscale;
 }

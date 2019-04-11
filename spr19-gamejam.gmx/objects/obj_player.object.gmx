@@ -41,6 +41,7 @@ score = 0; // [0, inf)
 sp = 16;
 y_dir = sp;
 x_dir = sp;
+direction = 90;
 
 // attack
 attack_type = 0;
@@ -210,24 +211,12 @@ if not(global.pause) {
     (red &gt; 0) and (green &gt; 0) and (blue &gt; 0) {
     switch(attack_type) {
       case 0: // standard attack type
-      for (i = -1 * floor(stream / 2); i &lt; ceil(stream / 2); i++) {
-        bullet = instance_create(x, y, obj_player_projectile_1);
-        bullet.sp = 16;
-        bullet.speed = 16;
-        bullet.dummy_speed = 16;
-        bullet.movement_ai = 0;
-        bullet.damage_ai =  1;
-        bullet.sprite_index = spr_player_projectilie_1;
-        bullet.direction = image_angle + (spread * i);
-        bullet.image_angle = image_angle + (spread * i) + 90;
-        bullet.xscale = 0;
-        bullet.yscale = 0;
-      }
-      red--;
-      green--;
-      blue--;
-      frames = 0;
-      break;
+        scr_player_attack(1, 0, 32, 32, 0, 1, spr_player_projectilie_1, 0, 0);
+        red--;
+        green--;
+        blue--;
+        frames = 0;
+        break;
     }
   }
 }
@@ -294,7 +283,7 @@ if not(global.pause) {
       green++;
     else if (bullet.color == color) and (color == 'b')
       blue++;
-    else
+    else if (bullet.color != 'w')
       health--;
     bullet.armed = false;
   }
