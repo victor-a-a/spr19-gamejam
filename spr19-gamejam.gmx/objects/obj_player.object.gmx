@@ -41,8 +41,10 @@ score = 0; // [0, inf)
 sp = 16;
 y_dir = sp;
 x_dir = sp;
+direction = 90;
 
 // attack
+attack_type = 0;
 cooldown = 6; // at 30 fps
 frames = 0;
 
@@ -207,11 +209,15 @@ if not(global.pause) {
   frames++;
   if (keyboard_check(ord('X'))) and (frames &gt;= cooldown * (global.frames / 30)) and
     (red &gt; 0) and (green &gt; 0) and (blue &gt; 0) {
-    instance_create(x, y, obj_player_projectile_1);
-    red--;
-    green--;
-    blue--;
-    frames = 0;
+    switch(attack_type) {
+      case 0: // standard attack type
+        scr_player_attack(1, 0, 32, 32, 0, 1, spr_player_projectilie_1, 0, 0);
+        red--;
+        green--;
+        blue--;
+        frames = 0;
+        break;
+    }
   }
 }
 </string>
@@ -277,7 +283,7 @@ if not(global.pause) {
       green++;
     else if (bullet.color == color) and (color == 'b')
       blue++;
-    else
+    else if (bullet.color != 'w')
       health--;
     bullet.armed = false;
   }

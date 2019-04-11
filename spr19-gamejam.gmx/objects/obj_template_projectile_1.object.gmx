@@ -135,12 +135,18 @@ if not(global.pause) {
     case 0: // do nothing
       break;
       
-    case 1: // expand horizontally
+    case 1: // disappear after collision
+      if not(armed)
+        instance_destroy();
+      break;
+      
+    case 2: // expand horizontally
       image_xscale += (xscale / global.frames);
       break;
     
-    case 2: // expand vertically
+    case 3: // expand vertically
       image_yscale += (yscale / global.frames);
+      break;
   }
 }
 </string>
