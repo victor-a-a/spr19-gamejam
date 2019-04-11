@@ -138,6 +138,7 @@ if not(global.pause) {
     case 1: // disappear after collision
       if not(armed)
         instance_destroy();
+      break;
       
     case 2: // expand horizontally
       image_xscale += (xscale / global.frames);
