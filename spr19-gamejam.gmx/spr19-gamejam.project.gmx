@@ -37,6 +37,9 @@
       <scripts name="enemies">
         <script>scripts\script1.gml</script>
       </scripts>
+      <scripts name="projectiles">
+        <script>scripts\script2.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
