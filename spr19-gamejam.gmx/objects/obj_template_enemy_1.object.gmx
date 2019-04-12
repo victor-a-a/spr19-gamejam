@@ -149,14 +149,10 @@ if not(global.pause) {
     case 1: // moves from left to right following player
       scr_enemy_left_right_1();
       break;
+      
     // case 2 and case 4 have problems initializing motion; use target xy to fix  
     case 2: // moves from left to right until it hits edges or other object
-      if (x &gt; room_width - 64) and 
-        not(collision_line(x, y, x + x_dist, y, obj_template_enemy_1, true, true))
-        move_towards_point(0, y, speed);
-      else if (x &lt; 64) and
-        not(collision_line(x, y, x - x_dist, y, obj_template_enemy_1, true, true))
-        move_towards_point(room_width, y, speed);
+      scr_enemy_left_right_2();
       break;
       
     case 3: // moves up and down following the player

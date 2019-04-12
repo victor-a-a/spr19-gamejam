@@ -37,6 +37,7 @@
       <scripts name="enemies">
         <scripts name="movement">
           <script>scripts\scr_enemy_left_right_1.gml</script>
+          <script>scripts\scr_enemy_left_right_2.gml</script>
         </scripts>
       </scripts>
       <scripts name="projectiles">
