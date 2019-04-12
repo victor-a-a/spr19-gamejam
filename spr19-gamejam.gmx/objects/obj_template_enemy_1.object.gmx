@@ -156,16 +156,11 @@ if not(global.pause) {
       break;
       
     case 3: // moves up and down following the player
-      
+      scr_enemy_up_down_1();
       break;
       
     case 4: // moves up and down until it hits edges or other object
-      if (y &gt; room_height - 64) and 
-        not(collision_line(x, y, x, y + y_dist, obj_template_enemy_1, true, true))
-        move_towards_point(x, 0, speed);
-      else if (y &lt; 64) and
-        not(collision_line(x, y, x, y - y_dist, obj_template_enemy_1, true, true))
-        move_towards_point(x, room_height, speed);
+      scr_enemy_up_down_2();
       break;
   }
 }
